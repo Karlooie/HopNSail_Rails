@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # :confirmable
   
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable,
          :omniauthable, :omniauth_providers => [:facebook]
 
 
