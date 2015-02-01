@@ -1,7 +1,7 @@
 h1 Rides
 
 - if user_signed_in?
-  - if user.boats.any?
+  - if current_user.boats.any?
     = link_to 'Create Ride', new_ride_path
   - else link_to 'add a boat', new_boat_path
     = " to create a new ride"
@@ -23,7 +23,7 @@ table.table
 
   - for ride in @rides
     tr 
-      td = ride.user.first_name
+      td = ride.user.email
       td = ride.boat.name
       td = ride.ride_type_to_s
       td = ride.availability
