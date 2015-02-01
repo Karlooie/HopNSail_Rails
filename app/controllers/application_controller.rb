@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
 
   before_filter :authenticate_browser
 
+  def root
+    rides_path
+  end
 
   protected
 
