@@ -1,0 +1,12 @@
+.row
+  .col-md-4
+    = f.input :boat_id, collection: current_user.boats(order: 'name'), prompt: "Choose a Boat"
+  .col-md-4
+    = f.input :ride_type, collection: Options::RideType.all_as_sym
+  .col-md-4
+    = f.input :availability, label: 'Places available'
+.row
+  .col-md-4
+    = f.input :starting_at, as: :string, input_html: { type: 'Date' }
+  .col-md-4
+    = f.input :finishing_at, as: :string, input_html: { type: 'Date' }

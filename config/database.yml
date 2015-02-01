@@ -1,0 +1,23 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: blablaboat_development
+  username: develop
+  password: develop
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: blablaboat_test
+  username: test
+  password: test
+  
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: blablaboat_production
+  username: production
+  password: production

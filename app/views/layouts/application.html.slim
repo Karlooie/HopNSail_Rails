@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title Blablaboat
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    .navbar.navbar-shippit.navbar-pages role="navigation" 
+      .container
+        .navbar-header
+          button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button" 
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+            = link_to authenticated_root_path, class:"navbar-brand" do
+              | Blablasail
+          
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              li = link_to 'edit profile', edit_user_registration_path
+              li = link_to 'settings', edit_settings_path
+              li = link_to 'Log out', logout_url
+            - else
+              li = link_to 'sign in', new_user_session_path
+              li = link_to 'sign up', new_user_registration_path
+
+    .container
+      p.notice = notice
+      p.alert = alert
+      = yield

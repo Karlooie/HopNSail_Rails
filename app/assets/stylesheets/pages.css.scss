@@ -1,0 +1,14 @@
+  .user_remember_me {
+    .control-label {
+      position: absolute;
+      left: 41%;
+      top: 108px;
+      text-align: left;
+    }
+    input[type=checkbox] {
+      position: absolute;
+      left: 37%;
+      width: 20px;
+      top: 120px;
+    }
+  }

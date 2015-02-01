@@ -1,0 +1,39 @@
+h1 personal setting
+
+= link_to 'add a boat', new_boat_path
+
+
+- if current_user.boats.any?
+  h1 my boats
+  table.table
+    tr
+      th 
+      th Name
+      th Type
+      th Make
+      th Model
+      th Year
+      th 
+      - for boat in current_user.boats
+        tr
+          th = image_tag(boat.avatar)
+          th = boat.name
+          th = boat.boat_type
+          th = boat.make
+          th = boat.model
+          th = boat.year
+          th = link_to 'edit', edit_boat_path(boat)
+- else
+  p add a boat to start rides  
+
+
+
+
+
+    t.string   "name"
+    t.string   "avatar"
+    t.string   "boat_type"
+    t.string   "make"
+    t.string   "model"
+    t.integer  "year"
+    t.decimal  "lenght"

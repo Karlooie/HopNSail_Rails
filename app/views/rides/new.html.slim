@@ -1,0 +1,8 @@
+h1 Add new Ride
+
+= simple_form_for Ride.new do |form|
+  = render partial: "form", :locals => { :f => form }
+  
+  .form-actions
+    = form.button :submit, "Add Ride", class: 'btn btn-primary'
+  

@@ -1,0 +1,27 @@
+h1 Rides
+
+- if user_signed_in?
+  = link_to 'Create Ride', new_ride_path
+- else
+  = link_to 'sign up', new_user_registration_path
+  = " to create a new ride"
+
+table.table
+  tr
+    th User
+    th Boat
+    th Type
+    th Places available
+    th Starting at
+    th Finishing at
+    th
+
+  - for ride in @rides
+    tr 
+      td = ride.user.first_name
+      td = ride.boat.name
+      td = ride.ride_type_to_s
+      td = ride.availability
+      td = ride.starting_at.to_s
+      td = ride.finishing_at.to_s
+      td 

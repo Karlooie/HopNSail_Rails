@@ -1,0 +1,19 @@
+.row
+  .col-md-4
+    =f.input :name
+  .clearfix
+.row
+  .col-md-4
+    = f.input :avatar
+  .col-md-4
+    = f.input :boat_type, collection: Options::BoatType.all_as_sym
+  .col-md-4
+    = f.input :lenght
+.row
+  .col-md-4
+    = f.input :make
+  .col-md-4
+    = f.input :model
+  .col-md-4
+    = f.input :year
+

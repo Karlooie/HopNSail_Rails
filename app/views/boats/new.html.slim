@@ -1,0 +1,8 @@
+h1 Add new Boat
+
+= simple_form_for Boat.new do |form|
+  = render partial: "form", :locals => { :f => form }
+  
+  .form-actions
+    = form.button :submit, "Add boat", class: 'btn btn-primary'
+  

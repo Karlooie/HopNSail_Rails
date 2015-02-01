@@ -1,0 +1,17 @@
+h2 Sign in
+
+.col-md-6
+  = simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f|
+    .form-inputs
+      .form-group
+        = f.input :email, :required => true, wrapper: :horizontal_file_input do
+          = f.input_field :email, :required => true, :autofocus => true, placeholder: 'user@domain.com', class: "form-control input-lg"        
+        = f.input :password, :required => true, wrapper: :horizontal_file_input, placeholder: 'password' do
+          = f.input_field :password, :required => true, placeholder: "Enter Your Password", class: "form-control input-lg"
+      .form-group
+        = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+
+    .form-actions
+      = f.button :submit, "Sign in"
+
+  = render "devise/shared/links"
