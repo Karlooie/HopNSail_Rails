@@ -1,11 +1,16 @@
 h1 Rides
 
 - if user_signed_in?
-  = link_to 'Create Ride', new_ride_path
+  - if user.boats.any?
+    = link_to 'Create Ride', new_ride_path
+  - else link_to 'add a boat', new_boat_path
+    = " to create a new ride"
 - else
   = link_to 'sign up', new_user_registration_path
   = " to create a new ride"
 
+br
+br
 table.table
   tr
     th User
