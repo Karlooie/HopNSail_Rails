@@ -10,18 +10,17 @@ Rails.application.routes.draw do
 
 
 
-  unauthenticated do
+  unauthenticated :user do
     root to: "coming_soon#index", as: :unauthenticated_root
     # root to: "pages#index", as: :unauthenticated_root
   end
 
 
   authenticated :user do
-    root to: 'rides#index', as: :authenticated_root
+    root to: 'rides#index',   as: :authenticated_root
     get "edit_settings",      to: 'settings#edit'
     put 'update_settings',    to: 'settings#update'
   end
-
 
   resources :rides
 
