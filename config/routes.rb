@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   resources :rides
   resources :boats
 
+
+  root to: 'pages#index'
+  
 end
