@@ -6,6 +6,9 @@
   .col-md-4
     = f.input :availability, label: 'Places available'
 .row
+  .col-md-12
+    = f.input :description
+.row
   .col-md-4
     = f.input :starting_at, as: :string, input_html: { type: 'Date' }
   .col-md-4

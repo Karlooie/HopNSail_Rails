@@ -19,9 +19,15 @@ Rails.application.routes.draw do
     put 'update_settings',    to: 'settings#update'
   end
 
-  resources :rides
+  resources :rides do 
+    resources :submissions do 
+      member do
+        get :approve
+        get :reject
+      end
+    end
+  end
   resources :boats
-
 
   root to: 'pages#index'
 

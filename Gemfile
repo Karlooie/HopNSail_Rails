@@ -22,7 +22,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-
 # Bootstrap and styling
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'font-awesome-sass', '~> 4.2.0'
@@ -37,6 +36,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 # auth
 gem 'devise'
+gem 'pundit', github: 'DanOlson/pundit'
 
 # social
 gem 'omniauth'
@@ -51,6 +51,8 @@ gem 'carrierwave'
 #Image manipulation
 gem 'mini_magick'
 
+# States
+gem 'state_machine'
 
 group :production do 
   gem 'rails_12factor'

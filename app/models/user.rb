@@ -8,8 +8,16 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
 
 
-  has_many :boats
-  has_many :rides
+  has_many :boats, dependent: :destroy
+  has_many :rides # rides are dependent destoy on boats
+  has_many :submissions # submissions are depentent destroy on rides
+
+
+
+  def submitted_rides
+    ride_ids = self.submissions.pluck(:ride_id)
+    return Ride.where('id in (?)', ride_ids)
+  end
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where( provider: auth.provider, uid: auth.uid).first

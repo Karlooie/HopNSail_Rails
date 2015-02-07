@@ -16,17 +16,29 @@ table.table
     th User
     th Boat
     th Type
+    th Description
+    th State
     th Places available
     th Starting at
     th Finishing at
+    th Created at
     th
 
   - for ride in @rides
-    tr 
+    tr.ride data-link="#{ride_path(ride)}" 
       td = ride.user.email
       td = ride.boat.name
       td = ride.ride_type_to_s
+      td = ride.description
+      td
+        span.label class="#{ride_state_to_class(ride.state)}" = ride.state.titleize
       td = ride.availability
-      td = ride.starting_at.to_s
-      td = ride.finishing_at.to_s
-      td 
+      td = ride.starting_at.try(:to_s,:simple)
+      td = ride.finishing_at.try(:to_s,:simple)
+      td = ride.created_at.try(:to_s,:short)
+
+
+coffee:
+  $ ->
+    $(document).on 'click', 'tr[data-link]', (evt) -> 
+      window.location = this.dataset.link

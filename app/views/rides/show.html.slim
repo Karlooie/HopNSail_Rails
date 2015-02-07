@@ -1,0 +1,57 @@
+h1 Ride Show
+
+
+table.table
+  tr
+    td = @ride.user.email
+    td = @ride.boat.name
+    td = @ride.ride_type_to_s
+    td = @ride.description
+    td
+      span.label class="#{ride_state_to_class(@ride.state)}" = @ride.state.titleize
+    td = @ride.availability
+    td = @ride.starting_at.try(:to_s,:simple)
+    td = @ride.finishing_at.try(:to_s,:simple)
+    td = @ride.created_at.try(:to_s,:short)
+
+br
+br
+br
+br
+
+h3 Submissions
+
+- if user_signed_in?
+  - unless current_user.rides.include? @ride
+    - if @submission.present?
+        p You already submitted your requeset
+    - else
+      = link_to 'Submit Request', ride_submissions_path(@ride), method: :post
+    - if @ride.submissions.any?
+
+br
+br  
+.col-md-6
+  table.table
+    tr
+      th User
+      th State
+      - if user_signed_in? and current_user.rides.include? @ride
+        th Manage
+    - for submission in @ride.submissions
+      table.table
+        tr
+          td = submission.user.email
+          td
+            span.label class="#{submission_state_to_class(submission.state)}" = submission.state.titleize
+          - if user_signed_in? and policy(submission).manage?
+            td
+              .btn-group
+                = link_to "Approve", approve_ride_submission_path(@ride, submission), class: 'btn btn-xs btn-success'
+                = link_to "Reject", reject_ride_submission_path(@ride, submission), class: 'btn btn-xs btn-danger'
+
+
+
+
+
+

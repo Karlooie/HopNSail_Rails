@@ -1,5 +1,5 @@
 module Options
-  class RideType < Base
+  class BoatType < Base
     @options = %w( motor sail catamaran )
   
     def initialize(option)
