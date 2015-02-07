@@ -26,6 +26,7 @@ class PermittedParams < Struct.new(:params, :user)
       :boat_id,
       :availability,
       :ride_type,
+      :description,
       :starting_at,
       :finishing_at
     ]
