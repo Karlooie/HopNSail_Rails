@@ -2,7 +2,7 @@ class SubmissionsController < ApplicationController
 
   before_filter :load_submission, only: [:approve, :reject]
 
-  after_action :verify_authorized, only: [:create, :approve, :reject]
+  after_action :verify_authorized, only: [:approve, :reject]
 
 
   def create
