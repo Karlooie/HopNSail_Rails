@@ -31,4 +31,11 @@ Rails.application.routes.draw do
 
   root to: 'pages#index'
 
+  #######
+  # API #
+  #######
+
+  mount API::Base => '/'
+  mount GrapeSwaggerRails::Engine => '/apidoc'
+
 end

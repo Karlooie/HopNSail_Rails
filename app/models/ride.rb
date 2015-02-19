@@ -19,6 +19,7 @@ class Ride < ActiveRecord::Base
   scope :open,        -> { where(state: 'open') }
   scope :completed,   -> { where(state: 'completed') }
   scope :cancelled,   -> { where(state: 'cancelled') }
+  scope :past,        -> { where('finishing_at < ?', Time.now ) }
   
   # States
   state_machine :state, :initial => :open do
@@ -31,6 +32,8 @@ class Ride < ActiveRecord::Base
       transition all => :cancelled
     end
   end
+
+
 
 
 end

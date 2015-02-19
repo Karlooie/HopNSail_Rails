@@ -10,6 +10,7 @@ gem 'coffee-rails', '~> 4.0.0' # Use CoffeeScript for .js.coffee assets and view
 
 # gem 'therubyracer',  platforms: :ruby
 
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -34,16 +35,21 @@ gem 'nested_form'
 # HIDE CODES
 gem 'dotenv-rails', :groups => [:development, :test]
 
+# API
+# Grape API
+gem 'grape-active_model_serializers'
+gem 'grape', '0.9.0'
+gem 'grape-entity'
+gem 'rack-contrib', '~> 1.1.0'
+gem 'grape-swagger', '~> 0.7.2'
+gem 'grape-swagger-rails',  '~> 0.0.8'
+gem 'grape-kaminari'
+
+gem "hashie_rails"
+
 # auth
 gem 'devise'
 gem 'pundit', github: 'DanOlson/pundit'
-
-# social
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'oauth2'
-gem "koala"
-gem 'fb_graph'
 
 #Image upload
 gem 'carrierwave'
@@ -54,9 +60,16 @@ gem 'mini_magick'
 # States
 gem 'state_machine'
 
-group :production do 
-  gem 'rails_12factor'
-end
+# Heroku assets
+gem 'rails_12factor'
+
+
+# Facebook login helper
+gem "koala", "~> 1.11.0rc"
+
+# omniauth gem for facebook 
+gem 'omniauth-facebook'
+
 
 group :development do 
   # better error message
