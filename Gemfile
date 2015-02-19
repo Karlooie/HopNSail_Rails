@@ -27,7 +27,7 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'font-awesome-sass', '~> 4.2.0'
 
-# templates`
+# templates
 gem 'slim-rails'
 gem 'simple_form', '3.1.0.rc2' # Forms
 gem 'nested_form'
@@ -53,9 +53,10 @@ gem 'pundit', github: 'DanOlson/pundit'
 
 #Image upload
 gem 'carrierwave'
+gem 'mini_magick'                 # Image manipulation
+gem 'fog'                         # Uploading files to S3
 
-#Image manipulation
-gem 'mini_magick'
+gem 'nokogiri'
 
 # States
 gem 'state_machine'

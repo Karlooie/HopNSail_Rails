@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  mount_uploader :avatar, AvatarUploader
 
   has_many :boats, dependent: :destroy
   has_many :rides # rides are dependent destoy on boats
