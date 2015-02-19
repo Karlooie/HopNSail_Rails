@@ -15,19 +15,18 @@ module API::V1
       desc "Create a new user profile", entity: API::Entities::User
       params do
         optional :user, type: Hash do
-          optional :username,  type: String, desc: 'Username'
+          optional :username,   type: String, desc: 'Username'
           requires :first_name, type: String, desc: 'First Name'
           requires :last_name,  type: String, desc: 'Last Name'
-          requires :email,     type: String, desc: 'Email'
-          requires :password,  type: String, desc: 'Password'
-          optional :bio,       type: String, desc: 'Bio'
+          requires :email,      type: String, desc: 'Email'
+          requires :password,   type: String, desc: 'Password'
+          optional :bio,        type: String, desc: 'Bio'
+          optional :avatar,     type: Hash,   desc: 'Avatar'
         end
-        optional :avatar,    type: File,   desc: 'Avatar'
       end
       post do
-        @user = User.create(params[:user])
-        @user.avatar = params[:avatar] if params[:avatar].present?
-        if @user.valid? || @user.persisted?
+        @user = User.build params[:user]
+        if @user.save
           present @user, with: API::Entities::User, type: :token_required
         else
           error!(@user.errors.full_messages, 422)
@@ -39,22 +38,18 @@ module API::V1
         requires :access_token, type: String, desc: 'Access Token'
         optional :user, type: Hash do
           optional :username,  type: String, desc: 'Username'
-          optional :firstname, type: String, desc: 'First Name'
-          optional :lastname,  type: String, desc: 'Last Name'
+          optional :first_name, type: String, desc: 'First Name'
+          optional :last_name,  type: String, desc: 'Last Name'
           optional :email,     type: String, desc: 'Email'
           optional :password,  type: String, desc: 'Password'
           optional :bio,       type: String, desc: 'Bio'
-          optional :avatar,    type: File,   desc: 'Avatar'
-          optional :cover_image,    type: File,   desc: 'Cover Image'
+          optional :avatar,    type: Hash,   desc: 'Avatar'
         end
       end
       put do
         authenticate_user!
         
-        current_user.attributes = params[:user]
-        current_user.avatar = params[:avatar] if params[:avatar].present?       
-        current_user.cover_image = params[:cover_image] if params[:cover_image].present?
-        if current_user.save
+        if current_user.update_attributes params[:user]
           present current_user, with: API::Entities::User, type: :token_required
         else
           error!(current_user.errors.full_messages, 422)
