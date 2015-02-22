@@ -25,9 +25,57 @@
   bottom: 0;
   right: 0;
   left: 0;
+  z-index: -1;
   background: image-url("banner.png") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;  
 }
+
+.logo-coming-soon {
+  margin-top: 193px;
+  width: 200px;
+  float: right;
+  img {
+    width: 100%;
+  }
+}
+
+.title-coming-soon {
+  text-align: center;
+  position: absolute;
+  bottom: 59px;
+  right: 0;
+  left: 0;
+  font-size: 75px;
+  font-weight: bold;
+  color: black;
+}
+
+
+.text-coming-soon {
+  text-align: center;
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  left: 0;
+  font-size: 19px;
+  font-weight: bold;
+  color: black;
+
+  a {
+    color: black;
+    &:hover {
+      text-decoration: none;
+      color: #337ab7;
+    }
+  }
+}
+
+
+
+
+
+
+
