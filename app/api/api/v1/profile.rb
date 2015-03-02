@@ -24,8 +24,9 @@ module API::V1
           optional :avatar,     type: Hash,   desc: 'Avatar'
         end
       end
+      
       post do
-        @user = User.build params[:user]
+        @user = User.new params[:user]
         if @user.save
           present @user, with: API::Entities::User, type: :token_required
         else
