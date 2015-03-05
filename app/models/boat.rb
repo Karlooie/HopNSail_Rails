@@ -7,7 +7,6 @@ class Boat < ActiveRecord::Base
 
   validates :name,
             :user_id,
-            :boat_type,
-            :avatar, presence: true
+            :boat_type, presence: true
 
 end

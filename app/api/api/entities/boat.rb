@@ -1,14 +1,14 @@
 module API
   module Entities
     class Boat < Grape::Entity
-      expose :id,             documentation: { type: 'Integer',   desc: 'Id' }
-      expose :ride_type,      documentation: { type: 'String',    desc: 'Ride Type' }
-      expose :availability,   documentation: { type: 'String',    desc: 'availability' }
-      expose :state,          documentation: { type: 'String',    desc: 'State' }
-      expose :description,    documentation: { type: 'text',      desc: 'Description' }
-      expose :starting_at,    documentation: { type: 'Datetime',  desc: 'Starting At' }
-      expose :duration,       documentation: { type: 'Integer',   desc: 'Duration' }
-      expose :avatar,         documentation: { type: 'File',      desc: 'Avatar' }
+      expose :id,           documentation: { type: 'Integer',  desc: 'Id' }
+      expose :name,         documentation: { type: 'String',   desc: 'Name' }
+      expose :avatar,       documentation: { type: 'File',     desc: 'Avatar' }
+      expose :boat_type,    documentation: { type: 'String',   desc: 'Boat Type' }
+      expose :make,         documentation: { type: 'String',   desc: 'Make' }
+      expose :model,        documentation: { type: 'Decimal',  desc: 'Model' }
+      expose :year,         documentation: { type: 'Integer',  desc: 'Year' }
+      expose :lenght,       documentation: { type: 'Decimal',  desc: 'Lenght' }
     end
   end
 end

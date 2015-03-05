@@ -8,5 +8,6 @@ module API::V1
     mount API::V1::Sessions
     mount API::V1::Rides
     mount API::V1::Profile
+    mount API::V1::Boats
   end
 end
