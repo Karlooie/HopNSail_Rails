@@ -5,8 +5,8 @@ class AddFieldsToUsers < ActiveRecord::Migration
   end
 
   def down
-    add_column :users, :birth_date, :date
-    add_column :users, :fb_id, :string
+    remove_column :users, :birth_date, :date
+    remove_column :users, :fb_id, :string
   end
 
 end
