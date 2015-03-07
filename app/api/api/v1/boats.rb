@@ -29,7 +29,7 @@ module API::V1
         # decode avatar as image before saving
         if params[:boat][:avatar].present? and params[:boat][:avatar].is_a?(Hash)
           decoder = Decoder::Image.new(params[:boat][:avatar])
-          params[:boat][:avatar] = Decoder::Image.decode
+          params[:boat][:avatar] = decoder.decode
         end
 
         @boat = current_user.boats.create(params[:boat])
@@ -65,7 +65,7 @@ module API::V1
         # decode avatar as image before saving
         if params[:boat][:avatar].present? and params[:boat][:avatar].is_a?(Hash)
           decoder = Decoder::Image.new(params[:boat][:avatar])
-          params[:boat][:avatar] = Decoder::Image.decode
+          params[:boat][:avatar] = decoder.decode
         end
 
         @boat = current_user.boats.find params[:boat][:id]

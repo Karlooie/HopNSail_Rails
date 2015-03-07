@@ -34,7 +34,7 @@ module API::V1
         # decode avatar as image before saving
         if params[:user][:avatar].present? and params[:user][:avatar].is_a?(Hash)
           decoder = Decoder::Image.new(params[:user][:avatar])
-          params[:user][:avatar] = Decoder::Image.decode
+          params[:user][:avatar] = decoder.decode
         end
         @user = User.new params[:user]
         if @user.save
