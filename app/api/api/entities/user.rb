@@ -7,7 +7,7 @@ module API
       expose :last_name,  documentation: { type: 'String', desc: 'Last Name' }
       expose :email,      documentation: { type: 'String', desc: 'Email' }
 
-      expose :avatar,     documentation: { type: 'File', desc: 'Avatar' }
+      expose :avatar,     documentation: { type: 'Hash', desc: 'Avatar' }
       expose :bio,        documentation: { type: 'Text', desc: 'Bio' }
 
       # expose :likes_count, documentation: { type: 'Integer', desc: 'number of likes' }

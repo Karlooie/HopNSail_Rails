@@ -21,11 +21,18 @@ module API::V1
           requires :email,      type: String, desc: 'Email'
           requires :password,   type: String, desc: 'Password'
           optional :bio,        type: String, desc: 'Bio'
-          optional :avatar,     type: Hash,   desc: 'Avatar'
+          optional :avatar,     type: Hash do 
+            optional :base64_image, type: String, desc: "Image Base64"
+            optional :filename,     type: String, desc: "Image Filename"
+          end
         end
       end
       
       post do
+        if params[:user][:avatar].present? and params[:user][:avatar].is_a?(Hash)
+          decoder = Decoder::Image.new(params[:user][:avatar])
+          params[:user][:avatar] = Decoder::Image.decode
+        end
         @user = User.new params[:user]
         if @user.save
           present @user, with: API::Entities::User, type: :token_required
@@ -44,11 +51,21 @@ module API::V1
           optional :email,     type: String, desc: 'Email'
           optional :password,  type: String, desc: 'Password'
           optional :bio,       type: String, desc: 'Bio'
-          optional :avatar,    type: Hash,   desc: 'Avatar'
+          # optional :avatar,    type: Hash,   desc: 'Avatar'
+          optional :avatar,     type: Hash do 
+            optional :base64_image, type: String, desc: "Image Base64"
+            optional :filename,     type: String, desc: "Image Filename"
+          end
+
         end
       end
       put do
         authenticate_user!
+
+        if params[:user][:avatar].present? and params[:user][:avatar].is_a?(Hash)
+          image_decoder = Decoder::Image.new(params[:user][:avatar])
+          params[:user][:avatar] = image_decoder.decode
+        end
         
         if current_user.update_attributes params[:user]
           present current_user, with: API::Entities::User, type: :token_required
