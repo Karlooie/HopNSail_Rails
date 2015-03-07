@@ -29,6 +29,7 @@ module API::V1
       end
       
       post do
+        # decode avatar as image before saving
         if params[:user][:avatar].present? and params[:user][:avatar].is_a?(Hash)
           decoder = Decoder::Image.new(params[:user][:avatar])
           params[:user][:avatar] = Decoder::Image.decode
@@ -61,7 +62,7 @@ module API::V1
       end
       put do
         authenticate_user!
-
+        # decode avatar as image before saving
         if params[:user][:avatar].present? and params[:user][:avatar].is_a?(Hash)
           image_decoder = Decoder::Image.new(params[:user][:avatar])
           params[:user][:avatar] = image_decoder.decode
