@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 20150306225544) do
     t.string   "username"
     t.string   "bio"
     t.string   "avatar"
-    t.date     "birth_date"
+    t.date     "birthday"
     t.string   "fb_id"
   end
 

@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   # :confirmable
   
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable,
-         :omniauthable, :omniauth_providers => [:facebook]
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         # :omniauthable, :omniauth_providers => [:facebook]
 
   mount_uploader :avatar, AvatarUploader
 

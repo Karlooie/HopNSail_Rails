@@ -6,9 +6,11 @@ module API
       expose :first_name, documentation: { type: 'String', desc: 'First Name' }
       expose :last_name,  documentation: { type: 'String', desc: 'Last Name' }
       expose :email,      documentation: { type: 'String', desc: 'Email' }
+      expose :fb_id,      documentation: { type: 'String', desc: 'Facebook Id' }
 
       expose :avatar,     documentation: { type: 'Hash', desc: 'Avatar' }
       expose :bio,        documentation: { type: 'Text', desc: 'Bio' }
+      expose :birthday,   documentation: { type: 'Date', desc: 'Birthday' }
 
       # expose :likes_count, documentation: { type: 'Integer', desc: 'number of likes' }
 

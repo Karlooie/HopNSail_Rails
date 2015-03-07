@@ -21,6 +21,8 @@ module API::V1
           requires :email,      type: String, desc: 'Email'
           requires :password,   type: String, desc: 'Password'
           optional :bio,        type: String, desc: 'Bio'
+          optional :fb_id,      type: String, desc: 'Facebook Id'
+          optional :birthday,   type: String, desc: 'Birthday'
           optional :avatar,     type: Hash do 
             optional :base64_image, type: String, desc: "Image Base64"
             optional :filename,     type: String, desc: "Image Filename"
@@ -52,7 +54,8 @@ module API::V1
           optional :email,     type: String, desc: 'Email'
           optional :password,  type: String, desc: 'Password'
           optional :bio,       type: String, desc: 'Bio'
-          # optional :avatar,    type: Hash,   desc: 'Avatar'
+          optional :fb_id,      type: String, desc: 'Facebook Id'
+          optional :birthday,   type: String, desc: 'Birthday'
           optional :avatar,     type: Hash do 
             optional :base64_image, type: String, desc: "Image Base64"
             optional :filename,     type: String, desc: "Image Filename"
