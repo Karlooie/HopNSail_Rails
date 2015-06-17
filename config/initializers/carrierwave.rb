@@ -10,9 +10,9 @@ CarrierWave.configure do |config|
 
   if ENV['HEROKU-STAGING'].present?
     config.fog_credentials = {
-      :provider               => 'AWS',
-      :aws_access_key_id      => 'AKIAI22CNJFFOSBC3GJA',
-      :aws_secret_access_key  => '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',
+      :provider               => 'XXX',
+      :aws_access_key_id      => 'XXX',
+      :aws_secret_access_key  => 'XXX',
       :region                 => 'ap-southeast-2'
     }
     config.fog_directory  = 'hop-n-sail-develop'
